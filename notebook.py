@@ -1,5 +1,5 @@
 from note import Note
-from datetime import datetime
+from datetime import datetime, date
 
 class Notebook:
 
@@ -45,3 +45,16 @@ class Notebook:
     def show_notebook(self):
         for note in self.__listOfNotes:
             note.show_note()
+
+    def show_notes_day(self):
+        flag = True
+        year = int(input('Введите год: '))
+        month = int(input('Введите месяц: '))
+        day = int(input('Введите день: '))
+        find_day = date(year,month,day).strftime('%B %d, %Y')
+
+        for note in self.__listOfNotes:  
+            if note.get_date().__contains__(find_day):
+                note.show_note()
+                flag = False
+        return flag

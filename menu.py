@@ -18,6 +18,7 @@ class Menu:
             print('7. Загрузить блокнот')
             print('8. Отсортировать блокнот по дате')
             print('9. Отсортировать блокнот по id')
+            print('10. Показать записи за один день')
             print('0. Завершить работу')
             print('------------------------')
 
@@ -48,6 +49,9 @@ class Menu:
                     case 9: 
                         SortNotes().sort_by_id(notebook)
                         print('Блокнот отсортирован по id')
+                    case 10:                   
+                        if (notebook.show_notes_day()):
+                            print('За этот день данных нет')
                     case 0: 
                         work = False
                         print('Работа завершена')
