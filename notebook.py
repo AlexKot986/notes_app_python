@@ -25,11 +25,23 @@ class Notebook:
         self.__listOfNotes.append(Note(_id, date, title, message))
         self.__counter += 1
 
+    def find_note(self, _id):
+        for indx in range(len(self.__listOfNotes)):
+            if self.__listOfNotes[indx].get_id() == _id:
+                return indx
+
+    def change_note(self, indx):
+        message = input('message: ')
+        date = datetime.now().strftime('%B %d, %Y, %H:%M:%S')
+        self.__listOfNotes[indx].set_message(message)
+        self.__listOfNotes[indx].set_date(date)
+
+    def remove_note(self, indx):
+        self.__listOfNotes.pop(indx)
+
     def show_note(self, indx):
         self.__listOfNotes[indx].show_note()
 
     def show_notebook(self):
         for note in self.__listOfNotes:
             note.show_note()
-
-
